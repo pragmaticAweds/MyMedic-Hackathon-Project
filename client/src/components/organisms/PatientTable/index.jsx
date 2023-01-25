@@ -12,8 +12,8 @@ const PatientTable = ({
   const [currentPagination, setCurrentPagination] = useState(1);
   const patientTableHeading = [
     "S/N",
-    "Name",
-    "CardNumber",
+    "Patient Name",
+    "Unique Id",
     "Gender",
     "Diagnoses",
     "Health State",
@@ -60,7 +60,7 @@ const PatientTable = ({
                 </div>
                 <span>Yusuf Ajino</span>
               </div>
-              <span className="tb-cardnumber">000001</span>
+              <span className="tb-id">000001</span>
               <span className="">Female</span>
               <span className="">Lorem ipsum dolor</span>
               <span className="">Discharged</span>
