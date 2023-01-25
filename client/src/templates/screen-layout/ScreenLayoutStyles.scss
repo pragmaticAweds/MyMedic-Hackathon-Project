@@ -1,0 +1,19 @@
+.screen-layout-container {
+  @apply h-full flex flex-col;
+
+  .screen-layout-options {
+    @apply flex justify-between items-center;
+    h3 {
+      @apply text-[1.625rem] font-medium capitalize;
+    }
+    .screen-layout-options {
+      @apply flex justify-between items-center w-[80%];
+    }
+    .screen-layout-filter-options {
+      @apply max-w-[50%] w-full flex gap-x-2;
+      .filter-container {
+        @apply border border-[#dde2e5] rounded-[0.25rem] p-2 flex items-center bg-white gap-x-2 text-[#9ca3b0];
+      }
+    }
+  }
+}

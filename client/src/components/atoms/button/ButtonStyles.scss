@@ -1,0 +1,42 @@
+.button {
+  @apply w-full rounded-[0.3126rem] font-medium flex items-center justify-center gap-x-[0.3125rem] capitalize;
+}
+.primary-btn {
+  @apply bg-[#336CFB] text-white hover:bg-[#1b5cfe] active:bg-[#0047fc];
+}
+.danger-btn {
+  @apply bg-[#EB5757] text-white hover:bg-[#e94545] active:bg-[#e73232];
+}
+
+.danger-outline {
+  @apply bg-transparent border border-[#EB5757] text-[#EB5757] hover:border-[#e94545] active:border-[#e73232];
+}
+.disabled-btn {
+  @apply bg-[#b6babf] text-white cursor-default;
+}
+.outline-btn {
+  @apply bg-transparent border border-[#336CFB] text-[#336CFB] hover:border-[#1b5cfe] active:border-[#0047fc];
+}
+
+@keyframes donut-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.btn-loader {
+  @apply inline-block border-[0.25rem] rounded-full w-8 h-8;
+
+  animation: donut-spin 1s linear infinite;
+}
+
+.btn-loader-primary {
+  @apply border-b-[#336CFB] border-[#dde2e5];
+}
+
+.btn-loader-outline {
+  @apply border-[#dde2e5] border-b-[#0047fc];
+}
