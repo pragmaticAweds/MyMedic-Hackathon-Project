@@ -1,5 +1,7 @@
 import React from "react";
+import PatientTable from "../../components/organisms/PatientTable";
 import ScreenLayout from "../../templates/screen-layout";
+
 
 const PatientsPage = () => {
   return (
@@ -7,7 +9,9 @@ const PatientsPage = () => {
       title="Patient"
       btnLabel="Add Patient"
       inputName="filterPatient"
-    ></ScreenLayout>
+    >
+      <PatientTable/>
+    </ScreenLayout>
   );
 };
 
