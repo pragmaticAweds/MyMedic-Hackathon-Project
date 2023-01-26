@@ -2,28 +2,29 @@ import clsx from "clsx";
 import { useState } from "react";
 import PaginationArrowLeft from "../../atoms/vectors/PaginationArrowLeft";
 import PaginationArrowRight from "../../atoms/vectors/PaginationArrowRight";
-import "./TableStyles.scss";
+import "../Table/TableStyles.scss";
+import "./DoctorsTableStyles.scss";
 
-const Table = ({
-  gridStyle = "grid-cols-[0.25fr_0.25fr_0.15fr_0.15fr_0.15fr_0.15fr_0.1fr]",
-  tableData,
-  tableDataHeading,
-}) => {
+const DoctorsTable = ({ tableData, tableDataHeading }) => {
   const [currentPagination, setCurrentPagination] = useState(1);
   const tableHeading = [
-    "Name",
-    "Email",
-    "Date",
-    "Visit Time",
-    "Doctor",
-    "Purpose",
+    "S/N",
+    "Doctor's Name",
+    "Specialty",
     "Status",
+    "Working Hour",
+    "Shift",
+    "Date",
   ];
 
   return (
     <div className={clsx("table-container")}>
       <div
-        className={clsx("table-head-container", "grid items-center", gridStyle)}
+        className={clsx(
+          "table-head-container",
+          "grid items-center",
+          "doctors-table-grid-style"
+        )}
       >
         {tableHeading.map((th, i) => (
           <div key={`${th}-1 + ${i}`} className={clsx("table-head")}>
@@ -39,12 +40,13 @@ const Table = ({
               className={clsx(
                 "table-data-row",
                 "grid items-center",
-                gridStyle,
+                "doctors-table-grid-style",
                 i === arr.length - 1 ? "border-y" : "border-t"
               )}
               key={"appointment-table-data" + i}
             >
-              <div className="flex items-center gap-x-5">
+              <span className="">01</span>
+              <div className="flex items-center gap-x-5 justify-center">
                 <div className="w-10 h-10 flex rounded-full">
                   <img
                     src="/img/man-avatar.webp"
@@ -54,12 +56,12 @@ const Table = ({
                 </div>
                 <span>Yusuf Ajino</span>
               </div>
-              <span className="tb-email">Anonymous@gmail.com</span>
-              <span className="table-date ">10/10/20</span>
-              <span className="table-time">01:15-01:45pm</span>
-              <span className="table-time">Dr Ajisafe</span>
-              <span className="">Treatment</span>
-              <span className="">Waiting</span>
+
+              <span className="">Surgeon</span>
+              <span className=" ">unavailable</span>
+              <span className="">9am-5pm</span>
+              <span className="">morning</span>
+              <span className="">10/10/2020</span>
             </div>
           ))}
       </div>
@@ -102,4 +104,4 @@ const Table = ({
   );
 };
 
-export default Table;
+export default DoctorsTable;
