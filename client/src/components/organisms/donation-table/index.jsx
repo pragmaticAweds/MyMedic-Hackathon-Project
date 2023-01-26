@@ -4,13 +4,18 @@ import Button from "../../atoms/button";
 import PaginationArrowLeft from "../../atoms/vectors/PaginationArrowLeft";
 import PaginationArrowRight from "../../atoms/vectors/PaginationArrowRight";
 import "../table/TableStyles.scss";
+import "./DonationTableStyles.scss";
 
-const TableDonation = ({
-  
-  tableData,
-   tableDataHeading = ["S/N", "Name", "Email", "Date", "Donation", "Method", ""],
-}) => {
+const DonationTable = ({}) => {
   const [currentPagination, setCurrentPagination] = useState(1);
+  const tableDataHeading = [
+    "S/N",
+    "Donor Name",
+    "Email",
+    "Donation",
+    "Date",
+    "Method",
+  ];
 
   return (
     <div className={clsx("table-container")}>
@@ -18,7 +23,7 @@ const TableDonation = ({
         className={clsx(
           "table-head-container",
           "grid items-center",
-          "donationGridStyle"
+          "donation-grid-style"
         )}
       >
         {tableDataHeading.map((th, i) => (
@@ -35,12 +40,12 @@ const TableDonation = ({
               className={clsx(
                 "table-data-row",
                 "grid items-center",
-                "donationGridStyle",
+                "donation-grid-style",
                 i === arr.length - 1 ? "border-y" : "border-t"
               )}
               key={"appointment-table-data" + i}
             >
-              <span className="text-start">{i<9 ?`0${i + 1}`: i + 1}</span>
+              <span className="text-start">{i < 9 ? `0${i + 1}` : i + 1}</span>
 
               <div className="flex items-center gap-x-5">
                 <div className="w-10 h-10 flex rounded-full">
@@ -57,7 +62,7 @@ const TableDonation = ({
               <span className="table-date">25/01/2023</span>
               <span className="table-time">Bank transfer</span>
               <span className="">
-                <Button type="primary-btn" label="view" />
+                {/* <Button type="primary-btn" label="view" /> */}
               </span>
             </div>
           ))}
@@ -101,4 +106,4 @@ const TableDonation = ({
   );
 };
 
-export default TableDonation;
+export default DonationTable;
