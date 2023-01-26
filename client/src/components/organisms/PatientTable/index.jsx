@@ -57,7 +57,7 @@ const PatientTable = ({ tableData, tableDataHeading }) => {
                 </div>
                 <span>Yusuf Ajino</span>
               </div>
-              <span className="tb-cardnumber">000001</span>
+              <span className="tb-id">000001</span>
               <span className="">Female</span>
               <span className="">Lorem ipsum dolor</span>
               <span className="">Discharged</span>

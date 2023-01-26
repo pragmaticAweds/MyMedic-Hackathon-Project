@@ -3,7 +3,7 @@ import { useState } from "react";
 import Button from "../../atoms/button";
 import PaginationArrowLeft from "../../atoms/vectors/PaginationArrowLeft";
 import PaginationArrowRight from "../../atoms/vectors/PaginationArrowRight";
-import "../table/TableStyles.scss";
+import "../Table/TableStyles.scss";
 import "./DonationTableStyles.scss";
 
 const DonationTable = ({}) => {
