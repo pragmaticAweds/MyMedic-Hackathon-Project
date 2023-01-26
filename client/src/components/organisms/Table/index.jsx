@@ -5,12 +5,13 @@ import PaginationArrowRight from "../../atoms/vectors/PaginationArrowRight";
 import "./TableStyles.scss";
 
 const Table = ({
-  gridStyle = "grid-cols-[0.25fr_0.25fr_0.15fr_0.15fr_0.15fr_0.15fr_0.1fr]",
+  gridStyle = "grid-cols-[0.05fr_0.25fr_0.2fr_0.1fr_0.1fr_0.1fr_0.1fr_0.1fr]",
   tableData,
   tableDataHeading,
 }) => {
   const [currentPagination, setCurrentPagination] = useState(1);
   const tableHeading = [
+    "S/N",
     "Name",
     "Email",
     "Date",
@@ -22,9 +23,7 @@ const Table = ({
 
   return (
     <div className={clsx("table-container")}>
-      <div
-        className={clsx("table-head-container", "grid items-center", gridStyle)}
-      >
+      <div className={clsx("table-head-container", "grid", gridStyle)}>
         {tableHeading.map((th, i) => (
           <div key={`${th}-1 + ${i}`} className={clsx("table-head")}>
             {th}
@@ -44,7 +43,8 @@ const Table = ({
               )}
               key={"appointment-table-data" + i}
             >
-              <div className="flex items-center gap-x-5">
+              <span className="">01</span>
+              <div className="flex items-center justify-center gap-x-5">
                 <div className="w-10 h-10 flex rounded-full">
                   <img
                     src="/img/man-avatar.webp"
@@ -56,7 +56,7 @@ const Table = ({
               </div>
               <span className="tb-email">Anonymous@gmail.com</span>
               <span className="table-date ">10/10/20</span>
-              <span className="table-time">01:15-01:45pm</span>
+              <span className="table-time">01:15</span>
               <span className="table-time">Dr Ajisafe</span>
               <span className="">Treatment</span>
               <span className="">Waiting</span>
