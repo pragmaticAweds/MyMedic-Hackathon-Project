@@ -3,22 +3,19 @@ import { useState } from "react";
 import PaginationArrowLeft from "../../atoms/vectors/PaginationArrowLeft";
 import PaginationArrowRight from "../../atoms/vectors/PaginationArrowRight";
 import "../Table/TableStyles.scss";
-import "./PatientTableStyles.scss"
+import "./PatientTableStyles.scss";
 
-const PatientTable = ({
-  tableData,
-  tableDataHeading,
-}) => {
+const PatientTable = ({ tableData, tableDataHeading }) => {
   const [currentPagination, setCurrentPagination] = useState(1);
   const patientTableHeading = [
     "S/N",
     "Name",
-    "CardNumber",
+    "Unique Id",
     "Gender",
     "Diagnoses",
     "Health State",
     "Entry Date",
-    "Discharged Date"
+    "Discharged Date",
   ];
 
   return (

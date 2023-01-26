@@ -3,7 +3,10 @@
   label {
     @apply absolute -top-7 left-0 text-[#808080];
   }
-  input {
+  textarea {
     @apply w-full border-none outline-none bg-transparent text-lg;
+  }
+  .text-area-suffix {
+    @apply absolute -bottom-7 left-0;
   }
 }

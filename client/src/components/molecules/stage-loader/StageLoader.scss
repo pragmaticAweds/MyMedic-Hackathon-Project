@@ -1,0 +1,13 @@
+.stage-loader-container {
+  @apply flex max-w-[80%] w-full justify-between items-center mt-6 relative;
+  .stage-line {
+    @apply absolute bg-[#808080] w-full h-[0.09375rem] top-3;
+  }
+  .stage-container {
+    @apply flex flex-col items-center gap-y-2 bg-white z-10;
+
+    .stage-index {
+      @apply h-6 w-6 grid place-content-center rounded-full font-medium text-sm text-white;
+    }
+  }
+}
