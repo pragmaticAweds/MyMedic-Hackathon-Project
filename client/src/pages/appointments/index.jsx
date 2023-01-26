@@ -1,4 +1,3 @@
-import React from "react";
 import Table from "../../components/organisms/Table";
 import ScreenLayout from "../../templates/screen-layout";
 
