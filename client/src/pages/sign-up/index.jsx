@@ -6,6 +6,7 @@ import { useState } from "react";
 import Button from "../../components/atoms/button";
 import Input from "../../components/atoms/Input";
 import TextArea from "../../components/atoms/text-area";
+import Select from "../../components/atoms/select";
 
 const SignupPage = () => {
   const [signupStage, setSignupStage] = useState(0);

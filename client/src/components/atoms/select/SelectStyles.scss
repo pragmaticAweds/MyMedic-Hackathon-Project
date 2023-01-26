@@ -1,0 +1,19 @@
+.input-container {
+  @apply w-full border border-[#dde2e5] rounded-[0.25rem] py-3 px-4 flex items-center gap-x-3 relative bg-white;
+  label {
+    @apply absolute -top-7 left-0 text-[#808080];
+  }
+  .select {
+    @apply absolute top-[3.5rem] z-10 left-0 border border-[#dde2e5] rounded-[0.25rem] w-full flex-col bg-white;
+
+    .option {
+      @apply py-3 px-4 border-b hover:bg-[#E9F3FF] cursor-pointer;
+    }
+  }
+  .sidebar-toggle-btn {
+    transition: transform 0.3s;
+  }
+  .sidebar-open {
+    transform: rotate(180deg);
+  }
+}
