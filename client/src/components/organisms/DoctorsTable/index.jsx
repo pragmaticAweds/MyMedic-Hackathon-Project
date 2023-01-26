@@ -11,8 +11,10 @@ const DoctorsTable = ({
 }) => {
   const [currentPagination, setCurrentPagination] = useState(1);
   const tableHeading = [
+    "S/N",
     "Name",
     "Specialty",
+    "Date",
     "Rusumption",
     "Status",
     "Email",  
@@ -42,6 +44,7 @@ const DoctorsTable = ({
               )}
               key={"appointment-table-data" + i}
             >
+              <span>01</span>
               <div className="flex items-center gap-x-5">
                 <div className="w-10 h-10 flex rounded-full">
                   <img
@@ -53,6 +56,7 @@ const DoctorsTable = ({
                 <span>Yusuf Ajino</span>
               </div>
               <span className="tb-specialty">Surgeon</span>
+              <span className="tb-date">01/12/10</span>
               <span className="table-resumption ">10/10/20</span>
               <span className="table-status">Available</span>
               <span className="table-email">yusuufajinomoto@gmail.com</span>
