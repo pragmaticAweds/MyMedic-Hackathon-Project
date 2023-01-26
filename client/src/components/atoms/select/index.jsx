@@ -22,7 +22,7 @@ const Select = ({
     onClick(params);
   };
   return (
-    <div className={clsx(mxWt || "max-w-full", "input-container")}>
+    <div className={clsx(mxWt || "max-w-full", "select-container")}>
       {label ? <label htmlFor={name}>{label}</label> : null}
       <div
         className="flex items-center justify-between w-full"

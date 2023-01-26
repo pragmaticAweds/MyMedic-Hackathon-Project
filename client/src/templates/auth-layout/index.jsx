@@ -10,7 +10,7 @@ const AuthLayout = ({ children, imgUrl, imgAlt }) => {
           className="h-full object-cover"
         />
       </div>
-      <div className="h-full">{children}</div>
+      <div className="overflow-hidden">{children}</div>
     </div>
   );
 };

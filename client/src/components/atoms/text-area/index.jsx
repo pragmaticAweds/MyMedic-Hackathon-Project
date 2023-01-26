@@ -4,7 +4,7 @@ import "./TextAreaStyles.scss";
 
 const TextArea = ({ mxWt, label, name, placeholder, suffix }) => {
   return (
-    <div className={clsx(mxWt || "max-w-full", "input-container")}>
+    <div className={clsx(mxWt || "max-w-full", "text-area-container")}>
       {label ? <label htmlFor={name}>{label}</label> : null}
       <textarea
         placeholder={placeholder || "Search"}

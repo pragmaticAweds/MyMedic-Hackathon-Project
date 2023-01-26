@@ -1,5 +1,5 @@
-.input-container {
-  @apply w-full border border-[#dde2e5] rounded-[0.25rem] py-3 px-4 flex items-center gap-x-3 relative bg-white;
+.text-area-container {
+  @apply w-full border border-[#dde2e5] rounded-[0.25rem] py-2 px-4 flex items-center gap-x-3 relative bg-white;
   label {
     @apply absolute -top-7 left-0 text-[#808080];
   }
@@ -7,6 +7,6 @@
     @apply w-full border-none outline-none bg-transparent text-lg;
   }
   .text-area-suffix {
-    @apply absolute -bottom-7 left-0;
+    @apply absolute -bottom-7 left-0 text-[#808080] text-sm;
   }
 }

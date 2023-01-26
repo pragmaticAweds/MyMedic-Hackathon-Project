@@ -1,14 +1,14 @@
 .signup-container {
-  @apply flex flex-col justify-center items-center h-full px-8;
+  @apply flex flex-col justify-center items-center h-screen overflow-auto max-w-[85%] mx-auto;
   h2 {
     @apply text-2xl font-medium text-[#333333] mt-4 mb-2;
   }
   form {
-    @apply w-full;
+    @apply w-full mt-12;
     .form-stage-container {
-      @apply w-full flex flex-col;
+      @apply w-full flex flex-col gap-y-2;
       .form-stage {
-        @apply flex gap-x-8 mt-12;
+        @apply flex gap-x-8;
       }
     }
   }
