@@ -1,5 +1,5 @@
 .input-container {
-  @apply w-full border border-[#dde2e5] rounded-[0.25rem] px-4 flex items-center gap-x-3 relative py-2;
+  @apply w-full border border-[#dde2e5] rounded-[0.25rem] px-4 flex items-center gap-x-3 bg-white relative py-2;
   label {
     @apply absolute -top-7 left-0 text-[#808080];
   }

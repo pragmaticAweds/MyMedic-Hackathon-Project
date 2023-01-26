@@ -6,6 +6,6 @@
   }
 
   .dashboard-children {
-    @apply pt-6 pl-6 pr-4 h-screen flex flex-col overflow-y-auto overflow-x-hidden;
+    @apply pt-6 pl-6 pr-4 h-screen flex flex-col overflow-hidden;
   }
 }
