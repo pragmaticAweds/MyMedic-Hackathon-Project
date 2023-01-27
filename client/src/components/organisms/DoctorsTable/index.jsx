@@ -3,19 +3,18 @@ import { useState } from "react";
 import PaginationArrowLeft from "../../atoms/vectors/PaginationArrowLeft";
 import PaginationArrowRight from "../../atoms/vectors/PaginationArrowRight";
 import "../Table/TableStyles.scss";
-import "./PatientTableStyles.scss";
+import "./DoctorsTableStyles.scss";
 
-const PatientTable = ({ tableData, tableDataHeading }) => {
+const DoctorsTable = ({ tableData, tableDataHeading }) => {
   const [currentPagination, setCurrentPagination] = useState(1);
-  const patientTableHeading = [
+  const tableHeading = [
     "S/N",
-    "Name",
-    "Unique Id",
-    "Gender",
-    "Diagnoses",
-    "Health State",
-    "Entry Date",
-    "Discharged Date",
+    "Doctor's Name",
+    "Specialty",
+    "Status",
+    "Working Hour",
+    "Shift",
+    "Date",
   ];
 
   return (
@@ -24,10 +23,10 @@ const PatientTable = ({ tableData, tableDataHeading }) => {
         className={clsx(
           "table-head-container",
           "grid items-center",
-          "patient-table-grid-style"
+          "doctors-table-grid-style"
         )}
       >
-        {patientTableHeading.map((th, i) => (
+        {tableHeading.map((th, i) => (
           <div key={`${th}-1 + ${i}`} className={clsx("table-head")}>
             {th}
           </div>
@@ -41,13 +40,13 @@ const PatientTable = ({ tableData, tableDataHeading }) => {
               className={clsx(
                 "table-data-row",
                 "grid items-center",
-                "patient-table-grid-style",
+                "doctors-table-grid-style",
                 i === arr.length - 1 ? "border-y" : "border-t"
               )}
               key={"appointment-table-data" + i}
             >
-              <span className="tb-number">01</span>
-              <div className="flex items-center gap-x-5">
+              <span className="">01</span>
+              <div className="flex items-center gap-x-5 justify-center">
                 <div className="w-10 h-10 flex rounded-full">
                   <img
                     src="/img/man-avatar.webp"
@@ -57,12 +56,12 @@ const PatientTable = ({ tableData, tableDataHeading }) => {
                 </div>
                 <span>Yusuf Ajino</span>
               </div>
-              <span className="tb-id">000001</span>
-              <span className="">Female</span>
-              <span className="">Lorem ipsum dolor</span>
-              <span className="">Discharged</span>
-              <span className="table-date">10/10/2020</span>
-              <span className="table-date">10/10/2020</span>
+
+              <span className="">Surgeon</span>
+              <span className=" ">unavailable</span>
+              <span className="">9am-5pm</span>
+              <span className="">morning</span>
+              <span className="">10/10/2020</span>
             </div>
           ))}
       </div>
@@ -105,4 +104,4 @@ const PatientTable = ({ tableData, tableDataHeading }) => {
   );
 };
 
-export default PatientTable;
+export default DoctorsTable;

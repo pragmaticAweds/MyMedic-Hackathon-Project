@@ -1,21 +1,20 @@
 import clsx from "clsx";
 import { useState } from "react";
+import Button from "../../atoms/button";
 import PaginationArrowLeft from "../../atoms/vectors/PaginationArrowLeft";
 import PaginationArrowRight from "../../atoms/vectors/PaginationArrowRight";
 import "../Table/TableStyles.scss";
-import "./PatientTableStyles.scss";
+import "./DonationTableStyles.scss";
 
-const PatientTable = ({ tableData, tableDataHeading }) => {
+const DonationTable = ({}) => {
   const [currentPagination, setCurrentPagination] = useState(1);
-  const patientTableHeading = [
+  const tableDataHeading = [
     "S/N",
-    "Name",
-    "Unique Id",
-    "Gender",
-    "Diagnoses",
-    "Health State",
-    "Entry Date",
-    "Discharged Date",
+    "Donor Name",
+    "Email",
+    "Donation",
+    "Date",
+    "Method",
   ];
 
   return (
@@ -24,10 +23,10 @@ const PatientTable = ({ tableData, tableDataHeading }) => {
         className={clsx(
           "table-head-container",
           "grid items-center",
-          "patient-table-grid-style"
+          "donation-grid-style"
         )}
       >
-        {patientTableHeading.map((th, i) => (
+        {tableDataHeading.map((th, i) => (
           <div key={`${th}-1 + ${i}`} className={clsx("table-head")}>
             {th}
           </div>
@@ -41,12 +40,13 @@ const PatientTable = ({ tableData, tableDataHeading }) => {
               className={clsx(
                 "table-data-row",
                 "grid items-center",
-                "patient-table-grid-style",
+                "donation-grid-style",
                 i === arr.length - 1 ? "border-y" : "border-t"
               )}
               key={"appointment-table-data" + i}
             >
-              <span className="tb-number">01</span>
+              <span className="text-start">{i < 9 ? `0${i + 1}` : i + 1}</span>
+
               <div className="flex items-center gap-x-5">
                 <div className="w-10 h-10 flex rounded-full">
                   <img
@@ -55,14 +55,15 @@ const PatientTable = ({ tableData, tableDataHeading }) => {
                     className="w-full h-full rounded-full object-cover"
                   />
                 </div>
-                <span>Yusuf Ajino</span>
+                <span>Yusuf Ajibola</span>
               </div>
-              <span className="tb-id">000001</span>
-              <span className="">Female</span>
-              <span className="">Lorem ipsum dolor</span>
-              <span className="">Discharged</span>
-              <span className="table-date">10/10/2020</span>
-              <span className="table-date">10/10/2020</span>
+              <span className="tb-email">Anonymous@gmail.com</span>
+              <span className="table-date ">Money</span>
+              <span className="table-date">25/01/2023</span>
+              <span className="table-time">Bank transfer</span>
+              <span className="">
+                {/* <Button type="primary-btn" label="view" /> */}
+              </span>
             </div>
           ))}
       </div>
@@ -105,4 +106,4 @@ const PatientTable = ({ tableData, tableDataHeading }) => {
   );
 };
 
-export default PatientTable;
+export default DonationTable;

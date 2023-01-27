@@ -1,0 +1,9 @@
+.modal-container {
+  @apply fixed inset-0 justify-center items-center;
+  .modal {
+    @apply bg-white rounded-lg pt-6 pb-8 px-8 h-full w-full z-10 flex flex-col overflow-hidden;
+    h2 {
+      @apply text-[#093D5E] text-xl border-b pb-4;
+    }
+  }
+}
