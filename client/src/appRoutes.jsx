@@ -8,15 +8,16 @@ import OverviewPage from "./pages/overview";
 import PatientsPage from "./pages/patients";
 import PaymentsPage from "./pages/payments";
 import SignupPage from "./pages/sign-up";
-import AdminLogInPage from "./pages/admin-Login";
 import LogInPage from "./pages/log-in";
+import AdminloginPage from "./pages/admin-login";
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/admin-login" element={<AdminLogInPage />} />
+      
       <Route path="/log-in" element={<LogInPage />} />
+      <Route path="/admin-login" element={<AdminloginPage />} />
       <Route path="/signup" element={<SignupPage />} />
       <Route path="/overview" element={<OverviewPage />} />
       <Route path="/patient" element={<PatientsPage />} />
