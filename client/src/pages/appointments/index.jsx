@@ -7,10 +7,13 @@ import ScreenLayout from "../../templates/screen-layout";
 import TextArea from "../../components/atoms/text-area";
 
 import "./AppointmentsPageStyles.scss";
+import Select from "../../components/atoms/select";
 
 const AppointmentsPage = () => {
   const [showModal, setShowModal] = useState(true);
   const [modalType, setModalType] = useState("view");
+  const [purpose, setPurpose] = useState("");
+  const purposes =["consultation", "checkout", "orders"]
 
   const handleModal = () => {
     setShowModal((prev) => !prev);
@@ -44,25 +47,26 @@ const AppointmentsPage = () => {
             className="appointment-form"
           >
             <div className="form-stage-container">
-              {/* first name and last name*/}
+              
               <div className="flex flex-col gap-y-12">
                 <div className="form-stage mt-6">
                   <Input
-                    label="First Name"
-                    placeholder="Enter your first name"
-                    name="firstName"
+                    label="Name"
+                    placeholder="Enter your name"
+                    name="name"
                     onChange={handleInputField}
-                    // value={patientPayload.firstName}
+                    // value={patientPayload.name}
                   />
                   <Input
-                    label="Last Name"
-                    placeholder="Enter your last name"
-                    name="lastName"
+                    label="Phone Number"
+                    
+                    placeholder="Enter your phone number"
+                    name="phone number"
                     onChange={handleInputField}
-                    // value={patientPayload.lastName}
+                    // value={patientPayload.phone number}
                   />
                 </div>
-                {/* email address and phone number*/}
+                
 
                 <div className="form-stage">
                   <Input
@@ -70,48 +74,52 @@ const AppointmentsPage = () => {
                     placeholder="Enter your email address"
                     name="email"
                     onChange={handleInputField}
-                    // value={patientPayload.email}
+                    // value={patientPayload.email address}
                   />
                   <Input
-                    label="Phone Number"
-                    placeholder="Enter your phone number"
-                    name="phoneNo"
+                    label="Date"
+                    type="date"
+                    placeholder="Enter the date"
+                    name="date"
                     onChange={handleInputField}
-                    // value={patientPayload.phoneNo}
+                    // value={patientPayload.date}
                   />
                 </div>
-                {/* password and confirm password*/}
+                
 
                 <div className="form-stage mb-6">
                   <Input
-                    label="Password"
-                    placeholder="Enter your password"
-                    name="password"
+                    label="Doctor"
+                    placeholder="Enter doctor,s name"
+                    name="doctor"
                     onChange={handleInputField}
-                    // value={patientPayload.password}
+                    // value={patientPayload.doctor name}
                   />
-                  <Input
-                    label="Confirm Password"
-                    placeholder="Retype your password"
-                    name="confirmPassword"
+                  <Select
+                    label="Purpose"
+                    placeholder="Enter select your purpose"
+                    name="purpose"
                     onChange={handleInputField}
-                    // value={patientPayload.confirmPassword}
+                    onClick={setPurpose}
+                    options={purposes}
+                    title={purpose}
+                    // value={patientPayload.purpose}
                   />
                 </div>
               </div>
               <div className="mt-4 mb-4">
                 <TextArea
-                  label="Address"
-                  placeholder="Enter your current address"
-                  name="address"
+                  label="Extra Information"
+                  placeholder="Enter your information"
+                  name="complain"
                   onChange={handleInputField}
-                  // value={patientPayload.address}
+                  // value={patientPayload.extra information}
                 />
               </div>
 
               <div className="flex  justify-end ">
                 <Button
-                  label="Next"
+                  label="Make Appointment"
                   // isDisabled={
                   //   !patientPayload.firstName |
                   //   !patientPayload.lastName |
