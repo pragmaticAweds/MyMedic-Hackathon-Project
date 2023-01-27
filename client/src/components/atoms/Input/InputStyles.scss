@@ -1,9 +1,9 @@
 .input-container {
-  @apply w-full border border-[#dde2e5] rounded-[0.25rem] py-2 px-4 flex items-center gap-x-3 relative bg-white;
+  @apply w-full border border-[#dde2e5] rounded-[0.25rem] px-4 flex items-center gap-x-3 bg-white relative py-2;
   label {
-    @apply absolute text-[0.8rem] -top-7 left-0 text-[#2E2E2E];
+    @apply absolute -top-7 left-0 text-[#808080];
   }
   input {
-    @apply w-full border-none outline-none bg-transparent text-lg;
+    @apply w-full border-none outline-none bg-transparent;
   }
 }

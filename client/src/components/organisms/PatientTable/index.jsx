@@ -2,37 +2,32 @@ import clsx from "clsx";
 import { useState } from "react";
 import PaginationArrowLeft from "../../atoms/vectors/PaginationArrowLeft";
 import PaginationArrowRight from "../../atoms/vectors/PaginationArrowRight";
-import "./TableStyles.scss";
+import "../Table/TableStyles.scss";
+import "./PatientTableStyles.scss";
 
-const Table = ({
-  gridStyle = "grid-cols-[0.05fr_0.25fr_0.2fr_0.1fr_0.1fr_0.1fr_0.1fr_0.1fr]",
-  tableData,
-  tableDataHeading = [
-    "Name",
-    "Email",
-    "Date",
-    "Visit Time",
-    "Doctor",
-    "Purpose",
-    "Status",
-  ],
-}) => {
+const PatientTable = ({ tableData, tableDataHeading }) => {
   const [currentPagination, setCurrentPagination] = useState(1);
-  const tableHeading = [
+  const patientTableHeading = [
     "S/N",
     "Name",
-    "Email",
-    "Date",
-    "Visit Time",
-    "Doctor",
-    "Purpose",
-    "Status",
+    "Unique Id",
+    "Gender",
+    "Diagnoses",
+    "Health State",
+    "Entry Date",
+    "Discharged Date",
   ];
 
   return (
     <div className={clsx("table-container")}>
-      <div className={clsx("table-head-container", "grid", gridStyle)}>
-        {tableHeading.map((th, i) => (
+      <div
+        className={clsx(
+          "table-head-container",
+          "grid items-center",
+          "patient-table-grid-style"
+        )}
+      >
+        {patientTableHeading.map((th, i) => (
           <div key={`${th}-1 + ${i}`} className={clsx("table-head")}>
             {th}
           </div>
@@ -46,13 +41,13 @@ const Table = ({
               className={clsx(
                 "table-data-row",
                 "grid items-center",
-                gridStyle,
+                "patient-table-grid-style",
                 i === arr.length - 1 ? "border-y" : "border-t"
               )}
               key={"appointment-table-data" + i}
             >
-              <span className="">01</span>
-              <div className="flex items-center justify-center gap-x-5">
+              <span className="tb-number">01</span>
+              <div className="flex items-center gap-x-5">
                 <div className="w-10 h-10 flex rounded-full">
                   <img
                     src="/img/man-avatar.webp"
@@ -60,14 +55,14 @@ const Table = ({
                     className="w-full h-full rounded-full object-cover"
                   />
                 </div>
-                <span>Yusuf Ajibola</span>
+                <span>Yusuf Ajino</span>
               </div>
-              <span className="tb-email">Anonymous@gmail.com</span>
-              <span className="table-date ">10/10/20</span>
-              <span className="table-time">01:15</span>
-              <span className="table-time">Dr Ajisafe</span>
-              <span className="">Treatment</span>
-              <span className="">Waiting</span>
+              <span className="tb-id">000001</span>
+              <span className="">Female</span>
+              <span className="">Lorem ipsum dolor</span>
+              <span className="">Discharged</span>
+              <span className="table-date">10/10/2020</span>
+              <span className="table-date">10/10/2020</span>
             </div>
           ))}
       </div>
@@ -110,4 +105,4 @@ const Table = ({
   );
 };
 
-export default Table;
+export default PatientTable;

@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <nav className="center">
       <MyMedicLogo />
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center pl-4">
         <Input mxWt="max-w-[30%]" />
         <div className="flex items-center gap-x-[1.625rem]">
           <NotificationIcon />

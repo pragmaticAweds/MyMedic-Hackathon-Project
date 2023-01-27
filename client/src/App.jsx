@@ -1,8 +1,8 @@
 import React from "react";
-import ScreenLayout from "./templates/screen-layout";
+import SignupPage from "./pages/sign-up";
 
 const App = () => {
-  return <ScreenLayout />;
+  return <SignupPage />;
 };
 
 export default App;
