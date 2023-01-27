@@ -16,6 +16,7 @@ const Table = ({
     "Purpose",
     "Status",
   ],
+  onClick,
 }) => {
   const [currentPagination, setCurrentPagination] = useState(1);
   const tableHeading = [
@@ -28,6 +29,9 @@ const Table = ({
     "Purpose",
     "Status",
   ];
+  const handleAppointmentDetails = () => {
+    onClick("view");
+  };
 
   return (
     <div className={clsx("table-container")}>
@@ -50,6 +54,7 @@ const Table = ({
                 i === arr.length - 1 ? "border-y" : "border-t"
               )}
               key={"appointment-table-data" + i}
+              onClick={handleAppointmentDetails}
             >
               <span className="">01</span>
               <div className="flex items-center justify-center gap-x-5">

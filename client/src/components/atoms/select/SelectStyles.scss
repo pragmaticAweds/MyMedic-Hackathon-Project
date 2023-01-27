@@ -1,7 +1,7 @@
 .select-container {
   @apply w-full border border-[#dde2e5] rounded-[0.25rem] py-2 px-4 flex items-center gap-x-3 relative bg-white;
   label {
-    @apply absolute -top-7 left-0 text-[#808080];
+    @apply absolute -top-6 left-0 text-[#808080] text-sm;
   }
   .select {
     @apply absolute top-[2.7rem] z-10 left-0 border border-[#dde2e5] rounded-[0.25rem] w-full flex-col bg-white;
