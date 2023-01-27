@@ -9,7 +9,7 @@ import TextArea from "../../components/atoms/text-area";
 import Select from "../../components/atoms/select";
 
 const SignupPage = () => {
-  const [signupStage, setSignupStage] = useState(1);
+  const [signupStage, setSignupStage] = useState(2);
   const [gender, setGender] = useState("");
   const stages = ["General Info", "Health Info", "Medic Info"];
   const genders = ["male", "female"];

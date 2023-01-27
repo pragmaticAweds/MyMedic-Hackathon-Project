@@ -28,6 +28,7 @@ const Modal = ({
           mxHt || "max-h-[32.06rem]"
         )}
       >
+    
         {children}
       </div>
     </div>
