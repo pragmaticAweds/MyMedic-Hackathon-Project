@@ -17,7 +17,17 @@ const SignupPage = () => {
     password: "",
     confirmPassword: "",
     address: "",
+    age: "",
+    bloodType: "",
+    occupation: "",
+    nextOfKin: "",
+    nextOfKinNumber: "",
+    allergies: "",
+    currentIllness: "",
+    currentMedication: "",
+    healthHistory: "",
   });
+
   const [signupStage, setSignupStage] = useState(0);
   const [gender, setGender] = useState("");
   const stages = ["General Info", "Health Info", "Medic Info"];
@@ -139,16 +149,27 @@ const SignupPage = () => {
                     title={gender}
                     onClick={setGender}
                   />
-                  <Input label="Age" placeholder="Enter your age" />
+                  <Input
+                    label="Age"
+                    name="age"
+                    value={patientPayload.age}
+                    placeholder="Enter your age"
+                  />
                 </div>
                 {/* blood type and occupation*/}
                 <div className="form-stage">
                   <Input
                     label="Blood Type"
                     placeholder="Enter your blood type"
+                    name="bloodType"
+                    value={patientPayload.bloodType}
+                    onChange={handleInputField}
                   />
                   <Input
                     label="Occupation"
+                    name="occupation"
+                    value={patientPayload.occupation}
+                    onChange={handleInputField}
                     placeholder="Enter your occupation"
                   />
                 </div>
@@ -156,10 +177,16 @@ const SignupPage = () => {
                 <div className="form-stage mb-6">
                   <Input
                     label="Next Of Kin Full Name"
+                    name="nextOfKin"
+                    value={patientPayload.nextOfKin}
+                    onChange={handleInputField}
                     placeholder="Enter the next of kin full name"
                   />
                   <Input
                     label="Next of Kin Phone Number"
+                    name="nextOfKinNumber"
+                    value={patientPayload.nextOfKinNumber}
+                    onChange={handleInputField}
                     placeholder="Enter the next of kin phone number"
                   />
                 </div>
@@ -167,13 +194,27 @@ const SignupPage = () => {
               <div className="mt-4">
                 <TextArea
                   label="Allergies"
+                  name="allergies"
+                  value={patientPayload.allergies}
+                  onChange={handleInputField}
                   placeholder="Enter your allergies"
                   suffix='Please enter your allergies seperated by " , " '
                 />
               </div>
               <div className="flex justify-between mt-8">
-                <Button label="prev" onClick={handlePrevStage} />{" "}
-                <Button label="Next" onClick={handleNextStage} />
+                <Button label="prev" onClick={handlePrevStage} />
+                <Button
+                  label="Next"
+                  onClick={handleNextStage}
+                  isDisabled={
+                    !patientPayload.age |
+                    !patientPayload.occupation |
+                    !patientPayload.bloodType |
+                    !patientPayload.nextOfKin |
+                    !patientPayload.nextOfKin |
+                    !patientPayload.allergies
+                  }
+                />
               </div>
             </div>
           ) : signupStage === 2 ? (
@@ -181,18 +222,27 @@ const SignupPage = () => {
               <div className="flex flex-col gap-y-16">
                 <TextArea
                   label="Current Illness"
+                  name="currentIllness"
+                  value={patientPayload.currentIllness}
+                  onChange={handleInputField}
                   placeholder="Enter your current illness"
                   suffix='Please enter your current illness seperated by " , "'
                 />
 
                 <TextArea
                   label="Current Medication"
+                  name="currentMedication"
+                  value={patientPayload.currentMedication}
+                  onChange={handleInputField}
                   placeholder="Enter your current medication"
                   suffix='Please enter your current medication seperated by " , "'
                 />
 
                 <TextArea
                   label="Health History"
+                  name="healthHistory"
+                  value={patientPayload.healthHistory}
+                  onChange={handleInputField}
                   placeholder="Enter your health history"
                   suffix='Please enter your health history seperated by " , "'
                 />
@@ -200,7 +250,14 @@ const SignupPage = () => {
 
               <div className="flex justify-between mt-8">
                 <Button label="prev" />
-                <Button label="Sign Up" />
+                <Button
+                  label="Sign Up"
+                  isDisabled={
+                    !patientPayload.currentIllness |
+                    !patientPayload.currentMedication |
+                    !patientPayload.healthHistory
+                  }
+                />
               </div>
             </div>
           ) : null}
