@@ -9,10 +9,32 @@ import TextArea from "../../components/atoms/text-area";
 import Select from "../../components/atoms/select";
 
 const SignupPage = () => {
-  const [signupStage, setSignupStage] = useState(2);
+  const [patientPayload, setPatientPayload] = useState({
+    lastName: "",
+    firstName: "",
+    email: "",
+    phoneNo: "",
+    password: "",
+    confirmPassword: "",
+    address: "",
+  });
+  const [signupStage, setSignupStage] = useState(0);
   const [gender, setGender] = useState("");
   const stages = ["General Info", "Health Info", "Medic Info"];
   const genders = ["male", "female"];
+  const handleInputField = (e) => {
+    const { name, value } = e.target;
+    setPatientPayload((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+  const handleNextStage = () => {
+    setSignupStage((prev) => prev + 1);
+  };
+  const handlePrevStage = () => {
+    setSignupStage((prev) => prev - 1);
+  };
   return (
     <AuthLayout>
       <div className="signup-container scrollbar-hide">
@@ -28,8 +50,17 @@ const SignupPage = () => {
                   <Input
                     label="First Name"
                     placeholder="Enter your first name"
+                    name="firstName"
+                    onChange={handleInputField}
+                    value={patientPayload.firstName}
                   />
-                  <Input label="Last Name" placeholder="Enter your last name" />
+                  <Input
+                    label="Last Name"
+                    placeholder="Enter your last name"
+                    name="lastName"
+                    onChange={handleInputField}
+                    value={patientPayload.lastName}
+                  />
                 </div>
                 {/* email address and phone number*/}
 
@@ -37,19 +68,36 @@ const SignupPage = () => {
                   <Input
                     label="Email Address"
                     placeholder="Enter your email address"
+                    name="email"
+                    onChange={handleInputField}
+                    value={patientPayload.email}
                   />
                   <Input
                     label="Phone Number"
                     placeholder="Enter your phone number"
+                    name="phoneNo"
+                    onChange={handleInputField}
+                    value={patientPayload.phoneNo}
                   />
                 </div>
                 {/* password and confirm password*/}
 
                 <div className="form-stage mb-6">
-                  <Input label="Password" placeholder="Enter your password" />
+                  <Input
+                    label="Password"
+                    placeholder="Enter your password"
+                    name="password"
+                    onChange={handleInputField}
+                    value={patientPayload.password}
+                    type="password"
+                  />
                   <Input
                     label="Confirm Password"
                     placeholder="Retype your password"
+                    name="confirmPassword"
+                    onChange={handleInputField}
+                    value={patientPayload.confirmPassword}
+                    type="password"
                   />
                 </div>
               </div>
@@ -57,11 +105,26 @@ const SignupPage = () => {
                 <TextArea
                   label="Address"
                   placeholder="Enter your current address"
+                  name="address"
+                  onChange={handleInputField}
+                  value={patientPayload.address}
                 />
               </div>
 
               <div className="flex  justify-end ">
-                <Button label="Next" />
+                <Button
+                  label="Next"
+                  isDisabled={
+                    !patientPayload.firstName |
+                    !patientPayload.lastName |
+                    !patientPayload.email |
+                    !patientPayload.phoneNo |
+                    !patientPayload.password |
+                    !patientPayload.confirmPassword |
+                    !patientPayload.address
+                  }
+                  onClick={handleNextStage}
+                />
               </div>
             </div>
           ) : signupStage === 1 ? (
@@ -109,7 +172,8 @@ const SignupPage = () => {
                 />
               </div>
               <div className="flex justify-between mt-8">
-                <Button label="prev" /> <Button label="Next" />
+                <Button label="prev" onClick={handlePrevStage} />{" "}
+                <Button label="Next" onClick={handleNextStage} />
               </div>
             </div>
           ) : signupStage === 2 ? (
