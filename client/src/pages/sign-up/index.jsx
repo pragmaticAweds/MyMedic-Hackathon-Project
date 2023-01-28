@@ -14,14 +14,14 @@ const SignupPage = () => {
     firstName: "",
     email: "",
     phoneNo: "",
+    nextOfKin: "",
+    nextOfKinNumber: "",
     password: "",
     confirmPassword: "",
     address: "",
     age: "",
     bloodType: "",
     occupation: "",
-    nextOfKin: "",
-    nextOfKinNumber: "",
     allergies: "",
     currentIllness: "",
     currentMedication: "",
@@ -41,6 +41,7 @@ const SignupPage = () => {
   };
   const handleNextStage = () => {
     setSignupStage((prev) => prev + 1);
+    if (signupStage === 2) return;
   };
   const handlePrevStage = () => {
     setSignupStage((prev) => prev - 1);
@@ -94,20 +95,20 @@ const SignupPage = () => {
 
                 <div className="form-stage mb-6">
                   <Input
+                    type="password"
                     label="Password"
                     placeholder="Enter your password"
                     name="password"
                     onChange={handleInputField}
-                    value={signupPayload.password}
-                    type="password"
+                    value={patientPayload.password}
                   />
                   <Input
+                    type="password"
                     label="Confirm Password"
                     placeholder="Retype your password"
                     name="confirmPassword"
                     onChange={handleInputField}
-                    value={signupPayload.confirmPassword}
-                    type="password"
+                    value={patientPayload.confirmPassword}
                   />
                 </div>
               </div>
@@ -154,6 +155,7 @@ const SignupPage = () => {
                     name="age"
                     value={signupPayload.age}
                     placeholder="Enter your age"
+                    onChange={handleInputField}
                   />
                 </div>
                 {/* blood type and occupation*/}
@@ -177,10 +179,10 @@ const SignupPage = () => {
                 <div className="form-stage mb-6">
                   <Input
                     label="Next Of Kin Full Name"
+                    placeholder="Enter the next of kin full name"
                     name="nextOfKin"
                     value={signupPayload.nextOfKin}
                     onChange={handleInputField}
-                    placeholder="Enter the next of kin full name"
                   />
                   <Input
                     label="Next of Kin Phone Number"
@@ -207,12 +209,13 @@ const SignupPage = () => {
                   label="Next"
                   onClick={handleNextStage}
                   isDisabled={
-                    !signupPayload.age |
-                    !signupPayload.occupation |
-                    !signupPayload.bloodType |
-                    !signupPayload.nextOfKin |
-                    !signupPayload.nextOfKin |
-                    !signupPayload.allergies
+                    !gender |
+                    !patientPayload.age |
+                    !patientPayload.occupation |
+                    !patientPayload.bloodType |
+                    !patientPayload.nextOfKin |
+                    !patientPayload.nextOfKinNumber |
+                    !patientPayload.allergies
                   }
                 />
               </div>
@@ -249,15 +252,8 @@ const SignupPage = () => {
               </div>
 
               <div className="flex justify-between mt-8">
-                <Button label="prev" />
-                <Button
-                  label="Sign Up"
-                  isDisabled={
-                    !signupPayload.currentIllness |
-                    !signupPayload.currentMedication |
-                    !signupPayload.healthHistory
-                  }
-                />
+                <Button label="prev" onClick={handlePrevStage} />
+                <Button label="Sign Up" onClick={handleNextStage} />
               </div>
             </div>
           ) : null}

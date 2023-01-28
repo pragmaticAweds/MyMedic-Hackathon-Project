@@ -9,7 +9,7 @@ import "./InputStyles.scss";
 const Input = ({
   mxWt,
   label,
-  type,
+  type = "text",
   name,
   placeholder,
   search,
@@ -20,16 +20,13 @@ const Input = ({
   detail,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
-  const [inputType, setInputType] = useState(type);
   const [showPassword, setShowPassword] = useState(true);
 
   const handleShowPassword = () => {
-    setInputType("text");
     setShowPassword((prev) => !prev);
   };
 
   const handleHidePassword = () => {
-    setInputType("password");
     setShowPassword((prev) => !prev);
   };
   const handleFocus = () => {
@@ -51,12 +48,12 @@ const Input = ({
       {prefix ? prefix : search ? <SearchIcon /> : null}
       {label ? <label htmlFor={name}>{label}</label> : null}
       <input
+        type={type === "password" && showPassword ? "password" : "text"}
+        name={name}
         onFocus={handleFocus}
         onBlur={handleBlur}
-        type={inputType}
         placeholder={placeholder || "Search"}
         id={name}
-        name={name}
         onChange={onChange}
         value={value}
       />
