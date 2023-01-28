@@ -29,7 +29,7 @@ const Table = ({
     "Purpose",
     "Status",
   ];
-  const handleAppointmentDetails = () => {
+  const handleViewAppointmentDetails = () => {
     onClick("view");
   };
 
@@ -54,7 +54,7 @@ const Table = ({
                 i === arr.length - 1 ? "border-y" : "border-t"
               )}
               key={"appointment-table-data" + i}
-              onClick={handleAppointmentDetails}
+              onClick={handleViewAppointmentDetails}
             >
               <span className="">01</span>
               <div className="flex items-center justify-center gap-x-5">
