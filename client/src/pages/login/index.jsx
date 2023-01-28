@@ -1,40 +1,39 @@
 import React from "react";
-import "./AdminStyles.scss";
+import "./LogInStyles.scss";
 import AuthLayout from "../../templates/auth-layout";
 import MyMedicLogo from "../../components/atoms/vectors/Logo";
 import Input from "../../components/atoms/Input";
 import Button from "../../components/atoms/button";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-import "../login/LogInStyles.scss";
-
-const AdminloginPage = () => {
-  const [adminLoginPayload, setadminLoginPayload] = useState({
+const LogInPage = () => {
+  const [loginPayload, setLoginPayload] = useState({
     email: "",
     password: "",
   });
   const handleInputField = (e) => {
     const { name, value } = e.target;
-    setadminLoginPayload((prevData) => ({
+    setLoginPayload((prevData) => ({
       ...prevData,
       [name]: value,
     }));
   };
   return (
-    <AuthLayout>
+    <AuthLayout imgUrl="/img/signup3.webp" imgAlt="A smilling doctor">
       <div className="login-container scrollbar-hide">
         <MyMedicLogo />
-        <h2>Admin Portal</h2>
+        <h2>Patients Log in</h2>
         <form onClick={(e) => e.preventDefault()}>
           <div className="form-stage-container">
             {/* email and password*/}
             <div className="flex flex-col gap-y-12 mb-6">
               <Input
-                label="Email"
-                placeholder="Enter your first name"
+                label="Email address"
+                placeholder="Enter your email address or PSID:<Patient State ID>"
                 name="email"
                 onChange={handleInputField}
-                value={adminLoginPayload.email}
+                value={loginPayload.email}
               />
 
               <Input
@@ -43,21 +42,30 @@ const AdminloginPage = () => {
                 placeholder="Enter your password"
                 name="password"
                 onChange={handleInputField}
-                value={adminLoginPayload.password}
+                value={loginPayload.password}
               />
             </div>
 
             <Button
               label="Login"
               mxWt="max-w-full"
-              isDisabled={
-                !adminLoginPayload.email | !adminLoginPayload.password
-              }
+              isDisabled={!loginPayload.email | loginPayload.password}
             />
+
+            <Link to="/signup">
+              <div className="login-btn-container">
+                <span className=" login-btn-or">or</span>
+                <span className="absolute h-[0.1rem] w-full bg-[#6666663f] "></span>
+              </div>
+              <div className="sign-up-container">
+                <span>Don't have an account?</span>
+                <span className="text-[#0075FA]">Sign up</span>
+              </div>
+            </Link>
           </div>
         </form>
       </div>
     </AuthLayout>
   );
 };
-export default AdminloginPage;
+export default LogInPage;

@@ -5,7 +5,7 @@ import PaginationArrowRight from "../../atoms/vectors/PaginationArrowRight";
 import "../Table/TableStyles.scss";
 import "./DoctorsTableStyles.scss";
 
-const DoctorsTable = ({ tableData, tableDataHeading }) => {
+const DoctorsTable = ({ tableData, tableDataHeading, onClick }) => {
   const [currentPagination, setCurrentPagination] = useState(1);
   const tableHeading = [
     "S/N",
@@ -16,6 +16,10 @@ const DoctorsTable = ({ tableData, tableDataHeading }) => {
     "Shift",
     "Date",
   ];
+
+  const handleViewDoctorsDetails = () => {
+    onClick("view");
+  };
 
   return (
     <div className={clsx("table-container")}>
@@ -32,7 +36,10 @@ const DoctorsTable = ({ tableData, tableDataHeading }) => {
           </div>
         ))}
       </div>
-      <div className={clsx("table-data-container", "scrollbar-hide")}>
+      <div
+        className={clsx("table-data-container", "scrollbar-hide")}
+        onClick={handleViewDoctorsDetails}
+      >
         {Array(16)
           .fill("1")
           .map((data, i, arr) => (

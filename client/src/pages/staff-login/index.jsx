@@ -8,7 +8,7 @@ import { useState } from "react";
 
 import "../login/LogInStyles.scss";
 
-const AdminloginPage = () => {
+const StaffloginPage = () => {
   const [adminLoginPayload, setadminLoginPayload] = useState({
     email: "",
     password: "",
@@ -21,10 +21,10 @@ const AdminloginPage = () => {
     }));
   };
   return (
-    <AuthLayout>
+    <AuthLayout imgUrl="/img/signup2.webp" imgAlt="A smilling doctor">
       <div className="login-container scrollbar-hide">
         <MyMedicLogo />
-        <h2>Admin Portal</h2>
+        <h2>Staff Portal</h2>
         <form onClick={(e) => e.preventDefault()}>
           <div className="form-stage-container">
             {/* email and password*/}
@@ -60,4 +60,4 @@ const AdminloginPage = () => {
     </AuthLayout>
   );
 };
-export default AdminloginPage;
+export default StaffloginPage;
