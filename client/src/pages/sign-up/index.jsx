@@ -249,15 +249,8 @@ const SignupPage = () => {
               </div>
 
               <div className="flex justify-between mt-8">
-                <Button label="prev" />
-                <Button
-                  label="Sign Up"
-                  isDisabled={
-                    !patientPayload.currentIllness |
-                    !patientPayload.currentMedication |
-                    !patientPayload.healthHistory
-                  }
-                />
+                <Button label="prev" onClick={handlePrevStage} />
+                <Button label="Sign Up" onClick={handleNextStage} />
               </div>
             </div>
           ) : null}
