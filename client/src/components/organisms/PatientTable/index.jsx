@@ -10,7 +10,7 @@ const PatientTable = ({ tableData, tableDataHeading, onClick }) => {
   const patientTableHeading = [
     "S/N",
     "Name",
-    "Unique Id",
+    "PS Id",
     "Gender",
     "Diagnoses",
     "Health State",
