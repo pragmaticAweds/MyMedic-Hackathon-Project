@@ -1,4 +1,3 @@
-import React, { PureComponent } from "react";
 import Table from "../../components/organisms/Table";
 import {
   AreaChart,
@@ -172,7 +171,7 @@ const OverviewPage = () => {
         </div>
         <div className="flex flex-col gap-y-4">
           <span className="font-bold text-xl text-[#333333]">
-            Appointment Activity
+            New Appointments
           </span>
           <Table />
         </div>
