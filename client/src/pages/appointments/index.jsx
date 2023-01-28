@@ -7,6 +7,7 @@ import ScreenLayout from "../../templates/screen-layout";
 import TextArea from "../../components/atoms/text-area";
 
 import "./AppointmentsPageStyles.scss";
+import Select from "../../components/atoms/select";
 
 const AppointmentsPage = () => {
   const [showModal, setShowModal] = useState(true);
@@ -35,7 +36,9 @@ const AppointmentsPage = () => {
         modalTitle={
           modalType === "add"
             ? "Add New Appointment Information"
-            : "View Appointment Information"
+            : modalType === "view"
+            ? "View Appointment Information"
+            : "Book an Appointment"
         }
       >
         {modalType === "add" ? (
@@ -128,6 +131,66 @@ const AppointmentsPage = () => {
           </form>
         ) : modalType === "view" ? (
           <div>View field</div>
+        ) : modalType === "book" ? (
+          <form className="flex  flex-col gap-8 py-4">
+            <div className="form-stage mt-6 flex pb-4 gap-8">
+              <Input
+                label="Name"
+                placeholder="Enter your full name"
+                name="fullName"
+                onChange={handleInputField}
+                // value={patientPayload.fullName}
+              />
+              <Input
+                label="Phone Number"
+                placeholder="Enter your phone number"
+                name="Number"
+                onChange={handleInputField}
+                // value={patientPayload.email}
+              />
+            </div>
+            {/* email address and phone number*/}
+
+            <div className="form-stage flex pb-4 gap-8">
+              <Input
+                label="Email Address"
+                placeholder="Enter your email address"
+                name="email"
+                onChange={handleInputField}
+                // value={patientPayload.email}
+              />
+              <Input
+                label="Date"
+                type="date"
+                name="Date"
+                onChange={handleInputField}
+                // value={patientPayload.phoneNo}
+              />
+            </div>
+            <Select
+              label="Purpose of Visit"
+              placeholder="Select your purpose"
+              type="options"
+              name="email"
+              onChange={handleInputField}
+              // value={patientPayload.email}
+            />
+            <TextArea
+              label="Extra Information"
+              placeholder="If there is any other information, please state it here."
+              name="extra"
+              onChange={handleInputField}
+              // value={patientPayload.extra information}
+            />
+            <div className="flex  gap-8  justify-end">
+              <Button type="danger-outline" label="Close" />
+              <Button
+                type="primary-btn"
+                mxWt="max-w-[9.5rem]"
+                label="Make Appointment"
+              />
+            </div>
+          </form>
         ) : null}
       </Modal>
     </ScreenLayout>
