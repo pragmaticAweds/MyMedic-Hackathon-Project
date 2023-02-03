@@ -4,9 +4,6 @@ import Input from "../../components/atoms/Input";
 import TextArea from "../../components/atoms/text-area";
 import Modal from "../../components/molecules/Modal";
 import PatientTable from "../../components/organisms/PatientTable";
-import Input from "../../components/atoms/Input";
-import Modal from "../../components/molecules/Modal";
-import Button from "../../components/atoms/button";
 import Select from "../../components/atoms/select";
 import ScreenLayout from "../../templates/screen-layout";
 

@@ -68,7 +68,7 @@ const AppointmentsPage = () => {
                     // value={patientPayload.phone number}
                   />
                 </div>
-                A
+
                 <div className="form-stage">
                   <Input
                     label="Email Address"
